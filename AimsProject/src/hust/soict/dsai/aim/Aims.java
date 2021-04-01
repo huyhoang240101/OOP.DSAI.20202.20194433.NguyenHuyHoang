@@ -1,4 +1,4 @@
-package abc;
+package hust.soict.dsai.aim;
 
 public class Aims {
 
