@@ -36,6 +36,8 @@ public class Aims {
 		System.out.println("Total Cost is: ");
 		System.out.println(an0ther.totalCost());
 		
+		
+		
 	}
 
 }
