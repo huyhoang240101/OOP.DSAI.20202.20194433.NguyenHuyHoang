@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="hust/soict/dsai/test/cart/CartTest.java|hust/soict/dsai/test/store/StoreTest.java|hust/soict/dsai/test/store/|hust/soict/dsai/test/|hust/soict/dsai/aim/Aims.java|hust/soict/dsai/|hust/soict/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/hust/soict/dsai/test/disc/TestPassingParameter.java"/>
+	<classpathentry excluding="Exercise225.java|Exercise226/OrderEq1st1.java|Exercise226/OrderEq2nd.java|Exercise226/SysOrderEq1st.java|JavaBasics/ChoosingOption.java|JavaBasics/InputFromKeyborad.java|JavaBasics/TriangleDis.java|NewJavaProject/Exercise4.java|NewJavaProject/Exercise5.java|NewJavaProject/Exercise6.java" kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
