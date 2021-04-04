@@ -38,14 +38,6 @@ public class Aims {
 //		System.out.println("Total Cost is: ");
 //		System.out.println(an0ther.totalCost());
 		
-//		ArrayList<Object> arrL = new ArrayList<Object>();
-//		arrL.add(dvd3.getTitle());
-//		arrL.add(dvd3.getCategory());
-//		arrL.add(dvd3.getDirectory());
-//		arrL.add(dvd3.getLength());
-//		arrL.add(dvd3.getCost());
-//		System.out.println(arrL);
-		
 		an0ther.printCart(an0ther);
 	}
 
