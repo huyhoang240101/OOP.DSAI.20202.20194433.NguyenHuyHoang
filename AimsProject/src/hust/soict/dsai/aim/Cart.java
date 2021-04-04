@@ -64,5 +64,18 @@ public class Cart {
 			System.out.println("There is not enough space");
 		}
 	}
+	public void printCart(Cart orderedCart) {
+		System.out.println("*****************************CART*************************************");
+		System.out.println("Ordered Items:");
+		for (int i=0; i < qtyOrdered; i++) {
+			System.out.print((i+1) + ". " + "DVD - ");
+			for (int j = 0; j < DigitalVideoDisc.getDetail(itemsOrdered[i]).size() -1 ; j++) {
+				System.out.print(DigitalVideoDisc.getDetail(itemsOrdered[i]).get(j) + " - ");
+			}
+			System.out.println(DigitalVideoDisc.getDetail(itemsOrdered[i]).get(DigitalVideoDisc.getDetail(itemsOrdered[i]).size() -1 ));
+		}
+		System.out.println("Total cost: " + orderedCart.totalCost());
+		System.out.println("**********************************************************************");
+	}
 	
 }

@@ -1,4 +1,5 @@
 package hust.soict.dsai.aim;
+import java.util.ArrayList;
 
 public class DigitalVideoDisc {
 	private String title;
@@ -62,5 +63,25 @@ public class DigitalVideoDisc {
 	}
 	public int getId() {
 		return id;
+	}
+	public static ArrayList<Object> getDetail(DigitalVideoDisc dvd) {
+		ArrayList<Object> arrL = new ArrayList<Object>();
+		if (dvd.getTitle() != null) {
+			arrL.add(dvd.getTitle());
+		}
+		if (dvd.getCategory() != null) {
+			arrL.add(dvd.getCategory());
+		}
+		if (dvd.getDirectory() != null) {
+			arrL.add(dvd.getDirectory());
+		}
+		if (dvd.getLength() != 0) {
+			arrL.add(dvd.getLength());
+		}
+		if (dvd.getCost() != 0) {
+			arrL.add(dvd.getCost() + "$");
+		}
+		
+		return arrL;
 	}
 }

@@ -1,5 +1,7 @@
 package hust.soict.dsai.aim;
 
+import java.util.ArrayList;
+
 public class Aims {
 
 	public static void main(String[] args) {
@@ -29,15 +31,22 @@ public class Aims {
 		an0ther.addDigitalVideoDisc(dvd4,dvd5);
 		an0ther.addDigitalVideoDisc(dvd6, dvd7, dvd8, dvd9);
 		
-		System.out.println("Total Cost is: ");
-		System.out.println(an0ther.totalCost());
+//		System.out.println("Total Cost is: ");
+//		System.out.println(an0ther.totalCost());
 		
-		an0ther.removeDigitalVideoDisc(dvd2);
-		System.out.println("Total Cost is: ");
-		System.out.println(an0ther.totalCost());
+		//an0ther.removeDigitalVideoDisc(dvd2);
+//		System.out.println("Total Cost is: ");
+//		System.out.println(an0ther.totalCost());
 		
+//		ArrayList<Object> arrL = new ArrayList<Object>();
+//		arrL.add(dvd3.getTitle());
+//		arrL.add(dvd3.getCategory());
+//		arrL.add(dvd3.getDirectory());
+//		arrL.add(dvd3.getLength());
+//		arrL.add(dvd3.getCost());
+//		System.out.println(arrL);
 		
-		
+		an0ther.printCart(an0ther);
 	}
 
 }
