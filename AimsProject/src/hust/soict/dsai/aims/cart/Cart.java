@@ -1,4 +1,6 @@
-package hust.soict.dsai.aim;
+package hust.soict.dsai.aims.cart;
+
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Cart {
 	
@@ -8,7 +10,7 @@ public class Cart {
 	private int qtyOrdered;
 	
 	//add a dvd into cart
-	void addDigitalVideoDisc(DigitalVideoDisc disc) {
+	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
 		if (qtyOrdered < MAX_NUMBERS_ORDERED) {
 			itemsOrdered[qtyOrdered] = disc;
 			qtyOrdered += 1;
@@ -20,7 +22,7 @@ public class Cart {
 	}
 	
 	//remove a dvd from cart
-	void removeDigitalVideoDisc(DigitalVideoDisc disc) {
+	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		for (int i=0; i <= qtyOrdered-1; i++) {
 			if (itemsOrdered[i] == disc) {
 				for (int j = i; j <= qtyOrdered-1; j++) {
@@ -42,7 +44,7 @@ public class Cart {
 	}
 	
 	// add an array of dvd into cart
-	void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
+	public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
 		for (int i=0; i < dvdList.length; i++) {
 			if (qtyOrdered < MAX_NUMBERS_ORDERED) {
 				itemsOrdered[qtyOrdered] = dvdList[i];
@@ -56,13 +58,13 @@ public class Cart {
 	}
 	
 	// add an arbitraty number of dvd into cart
-	void addDigitalVideoDisc(DigitalVideoDisc dvd, DigitalVideoDisc ... dvds) {
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd, DigitalVideoDisc ... dvds) {
 		addDigitalVideoDisc(dvd);
 		addDigitalVideoDisc(dvds);
 	}
 	
 	//add two dvds into cart
-	void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
 		if ((qtyOrdered +1) < MAX_NUMBERS_ORDERED) {
 			itemsOrdered[qtyOrdered] = dvd1;
 			itemsOrdered[qtyOrdered+1] = dvd2;
@@ -90,7 +92,7 @@ public class Cart {
 	}
 	
 	// search dvd by ID
-	void searchDVDbyId(int a) {
+	public void searchDVDbyId(int a) {
 		boolean found = false;
 		for (int i = 0; i < qtyOrdered; i++) {
 			if (itemsOrdered[i].getId() == a) {
@@ -108,7 +110,7 @@ public class Cart {
 	}
 	
 	//search dvd by Title
-	void searchDVDbyTitle(String b) {
+	public void searchDVDbyTitle(String b) {
 		boolean found = false;
 		for (int i = 0; i < qtyOrdered; i++) {
 			if (itemsOrdered[i].getTitle() == b) {

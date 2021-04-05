@@ -2,6 +2,9 @@ package hust.soict.dsai.aim;
 
 import java.util.ArrayList;
 
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class Aims {
 
 	public static void main(String[] args) {
@@ -34,7 +37,7 @@ public class Aims {
 //		System.out.println("Total Cost is: ");
 //		System.out.println(an0ther.totalCost());
 		
-		//an0ther.removeDigitalVideoDisc(dvd2);
+		an0ther.removeDigitalVideoDisc(dvd2);
 //		System.out.println("Total Cost is: ");
 //		System.out.println(an0ther.totalCost());
 		
