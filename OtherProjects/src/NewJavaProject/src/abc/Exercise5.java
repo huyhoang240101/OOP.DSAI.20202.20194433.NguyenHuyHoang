@@ -1,4 +1,4 @@
-package Lab01.NewJavaProject.src.abc;
+package NewJavaProject.src.abc;
 import java.util.Arrays;
 public class Exercise5 {
 

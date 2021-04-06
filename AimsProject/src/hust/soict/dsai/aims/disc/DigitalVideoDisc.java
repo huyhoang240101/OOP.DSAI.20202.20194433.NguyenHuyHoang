@@ -1,4 +1,4 @@
-package hust.soict.dsai.aim.disc;
+package hust.soict.dsai.aims.disc;
 import java.util.ArrayList;
 
 public class DigitalVideoDisc {

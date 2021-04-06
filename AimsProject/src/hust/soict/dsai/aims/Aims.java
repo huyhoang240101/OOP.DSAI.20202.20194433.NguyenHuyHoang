@@ -1,9 +1,7 @@
-package hust.soict.dsai.aim;
+package hust.soict.dsai.aims;
 
-import java.util.ArrayList;
-
-import hust.soict.dsai.aim.cart.Cart;
-import hust.soict.dsai.aim.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Aims {
 
@@ -34,12 +32,12 @@ public class Aims {
 		an0ther.addDigitalVideoDisc(dvd4,dvd5);
 		an0ther.addDigitalVideoDisc(dvd6, dvd7, dvd8, dvd9);
 		
-//		System.out.println("Total Cost is: ");
-//		System.out.println(an0ther.totalCost());
+		System.out.println("Total Cost is: ");
+		System.out.println(an0ther.totalCost());
 		
 		an0ther.removeDigitalVideoDisc(dvd2);
-//		System.out.println("Total Cost is: ");
-//		System.out.println(an0ther.totalCost());
+		System.out.println("Total Cost is: ");
+		System.out.println(an0ther.totalCost());
 		
 		an0ther.printCart(an0ther);
 	}

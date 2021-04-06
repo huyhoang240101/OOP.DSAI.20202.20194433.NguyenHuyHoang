@@ -1,4 +1,4 @@
-package Lab01.NewJavaProject.src.abc;
+package NewJavaProject.src.abc;
 import java.util.*;
 public class Exercise4 {
 

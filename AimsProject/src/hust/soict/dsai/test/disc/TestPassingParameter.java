@@ -1,6 +1,6 @@
 package hust.soict.dsai.test.disc;
 
-import hust.soict.dsai.aim.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 class Wrapper{
 	DigitalVideoDisc c;
