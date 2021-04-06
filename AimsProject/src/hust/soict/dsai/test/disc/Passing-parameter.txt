@@ -1,0 +1,6 @@
+- Java is a Pass by Value programming language.
+- After the call of swap(jungleDVD, cinderellaDVD) the title of these two objects still remain because the values passed 
+to the method are copied from the objects jungleDVD and cinderellaDVD. Therefore, only the copied values are swapped. 
+The actual values of the two objects still remain the same.
+- After the call of changrTitle(jungleDVD,cinderellaDVD.getTitle()) the jungleDVD changed because this method use getter
+and setter to access and modify the title of the object and then create a new object with the changed title.

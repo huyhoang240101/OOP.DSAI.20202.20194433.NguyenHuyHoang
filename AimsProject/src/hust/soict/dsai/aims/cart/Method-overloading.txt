@@ -1,0 +1,2 @@
+I prefer the addDigitalVideoDisc method that allow to pass an arbitrary number of arguments for dvd. Because it is more
+convenient for users since they do not have to put the dvd into an array and the system do not need to create that array.
