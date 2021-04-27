@@ -1,29 +1,17 @@
-package hust.soict.dsai.aims.disc;
+package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 
-public class DigitalVideoDisc {
-	private String title;
-	private String category;
+public class DigitalVideoDisc extends Media {
 	private String directory;
 	private int length;
-	private float cost;
 	private static int nbDigitalVideoDiscs = 0;
 	private int id;
 	
-	public String getTitle() {
-		return title;
-	}
-	public String getCategory() {
-		return category;
-	}
 	public String getDirectory() {
 		return directory;
 	}
 	public int getLength() {
 		return length;
-	}
-	public float getCost() {
-		return cost;
 	}
 	public DigitalVideoDisc(String title) {
 		super();

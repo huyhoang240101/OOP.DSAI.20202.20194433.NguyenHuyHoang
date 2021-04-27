@@ -1,11 +1,8 @@
-package hust.soict.dsai.aims.book;
+package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 
 public class Book {
 	private int id;
-	private String title;
-	private String category;
-	private float cost;
 	private ArrayList<String> authors = new ArrayList<String>();
 
 	public Book() {
@@ -14,18 +11,6 @@ public class Book {
 
 	public int getId() {
 		return id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public float getCost() {
-		return cost;
 	}
 
 	public ArrayList<String> getAuthors() {
