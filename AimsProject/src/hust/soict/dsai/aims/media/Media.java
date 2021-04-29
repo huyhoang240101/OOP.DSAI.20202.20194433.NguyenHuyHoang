@@ -2,9 +2,9 @@ package hust.soict.dsai.aims.media;
 import java.time.LocalDate;
 
 public abstract class Media {
-	private String title;
-	private String category;
-	private float cost;
+	protected String title;
+	protected String category;
+	protected float cost;
 	private LocalDate date;
 
 	public String getTitle() {

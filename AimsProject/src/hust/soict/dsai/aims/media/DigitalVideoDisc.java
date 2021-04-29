@@ -1,18 +1,12 @@
 package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 
-public class DigitalVideoDisc extends Media {
+public class DigitalVideoDisc extends Disc {
 	private String directory;
 	private int length;
 	private static int nbDigitalVideoDiscs = 0;
 	private int id;
 	
-	public String getDirectory() {
-		return directory;
-	}
-	public int getLength() {
-		return length;
-	}
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
