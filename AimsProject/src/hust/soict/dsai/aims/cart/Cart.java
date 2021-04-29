@@ -1,78 +1,42 @@
 package hust.soict.dsai.aims.cart;
-
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
+import java.util.ArrayList;
 
 public class Cart {
-	
-	public static final int MAX_NUMBERS_ORDERED = 20;
-	private DigitalVideoDisc itemsOrdered[] = 
-			new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-	private int qtyOrdered;
-	
-	//add a dvd into cart
-	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-		if (qtyOrdered < MAX_NUMBERS_ORDERED) {
-			itemsOrdered[qtyOrdered] = disc;
-			qtyOrdered += 1;
-			System.out.println("The disc has been added");
-		}
-		else {
-			System.out.println("The cart is full");
-		}
-	}
-	
-	//remove a dvd from cart
-	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-		for (int i=0; i <= qtyOrdered-1; i++) {
-			if (itemsOrdered[i] == disc) {
-				for (int j = i; j <= qtyOrdered-1; j++) {
-				    itemsOrdered[j] = itemsOrdered[j + 1];
-				}
-				qtyOrdered -= 1;
-				System.out.println("The disc has been removed");
-			}
-		}
-	}
+		private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	
 	// calculate the total cost of dvds in cart
 	public float totalCost() {
 		float sum = 0;
-		for (int i=0; i <= qtyOrdered-1; i++) {
-			sum += itemsOrdered[i].getCost();
+		for (int i=0; i < itemsOrdered.size(); i++) {
+			sum += itemsOrdered.get(i).getCost();
 		}
 		return sum;
 	}
 	
-	// add an array of dvd into cart
-	public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
-		for (int i=0; i < dvdList.length; i++) {
-			if (qtyOrdered < MAX_NUMBERS_ORDERED) {
-				itemsOrdered[qtyOrdered] = dvdList[i];
-				qtyOrdered += 1;
-				System.out.println("The disc has been added");
+	// add an arbitraty number of dvd into cart
+	public void addMedia(Media ... media) {
+		for (int i = 0; i < media.length; i++) {
+			if (itemsOrdered.contains(media[i]) == true) {
+				System.out.println(media[i].getTitle() + " already exist");
 			}
 			else {
-				System.out.println("The cart is full");
+				itemsOrdered.add(media[i]);
+				System.out.println(media[i].getTitle() + " has been added");
 			}
 		}
 	}
 	
-	// add an arbitraty number of dvd into cart
-	public void addDigitalVideoDisc(DigitalVideoDisc dvd, DigitalVideoDisc ... dvds) {
-		addDigitalVideoDisc(dvd);
-		addDigitalVideoDisc(dvds);
-	}
-	
-	//add two dvds into cart
-	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-		if ((qtyOrdered +1) < MAX_NUMBERS_ORDERED) {
-			itemsOrdered[qtyOrdered] = dvd1;
-			itemsOrdered[qtyOrdered+1] = dvd2;
-			qtyOrdered += 2;
-			System.out.println("Two discs has been added");
-		}
-		else {
-			System.out.println("There is not enough space");
+	public void removeMedia(Media ... media) {
+		for (int i = 0; i < media.length; i++) {
+			if (itemsOrdered.contains(media[i]) == true) {
+				itemsOrdered.remove(media[i]);
+				System.out.println(media[i].getTitle() + " has been removed");
+			}
+			else {
+				System.out.println(media[i].getTitle() + " does not exist");
+			}
 		}
 	}
 	
