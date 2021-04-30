@@ -19,19 +19,21 @@ public class Book extends Media {
 	
 	void addAuthor(String authorName) {
 		if (authors.contains(authorName) == true) {
-			System.out.println("The author already exist");
+			System.out.println(authorName + " already exist");
 		}
 		else {
 			authors.add(authorName);
+			System.out.println(authorName + " has been added");
 		}
 	}
 	
 	void removeAuthor(String authorName) {
 		if (authors.contains(authorName) == true) {
 			authors.remove(authorName);
+			System.out.println(authorName + " has been removed");
 		}
 		else {
-			System.out.println("the author does not exist");
+			System.out.println(authorName + " does not exist");
 		}
 	}
 }

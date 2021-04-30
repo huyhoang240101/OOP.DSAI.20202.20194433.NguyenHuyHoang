@@ -11,19 +11,21 @@ public class CompactDisc extends Disc implements Playable{
 	
 	void addTrack(Track track) {
 		if (tracks.contains(track) == true) {
-			System.out.println("The author already exist");
+			System.out.println(track.getTitle() + " already exist");
 		}
 		else {
 			tracks.add(track);
+			System.out.println(track.getTitle() + " has been added");
 		}
 	}
 	
 	void removeTrack(Track track) {
 		if (tracks.contains(track) == true) {
 			tracks.remove(track);
+			System.out.println(track.getTitle() + " has been removed");
 		}
 		else {
-			System.out.println("the author does not exist");
+			System.out.println(track.getTitle() + " does not exist");
 		}
 	}
 	
