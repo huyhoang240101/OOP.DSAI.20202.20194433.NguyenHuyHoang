@@ -22,14 +22,12 @@ public class Store {
 		}
 		System.out.println( "\n"+ media.length + " items has been removed from the store.");
 	}
-//	public void printStore() {
-//		System.out.println("************************STORE****************************************");
-//		for (int i = 0; i < itemsInStore.size(); i++) {
-//			System.out.print("\n" + itemsInStore.get(i).getId() + ". " + "DVD");
-//			for (int j = 0; j < DigitalVideoDisc.getDetail(itemsInStore.get(i)).size(); j++) {
-//				System.out.print(" - " + DigitalVideoDisc.getDetail(itemsInStore.get(i)).get(j));
-//			}
-//		}
-//		System.out.println("\n**********************************************************************");
-//	}
+	
+	public void printStore() {
+		System.out.println("************************STORE****************************************");
+		for (int i = 0; i < itemsInStore.size(); i++) {
+			System.out.println((i+1) + ". " + itemsInStore.get(i).toString() + " - " + itemsInStore.get(i).getDate());
+		}
+		System.out.println("\n**********************************************************************");
+	}
 }

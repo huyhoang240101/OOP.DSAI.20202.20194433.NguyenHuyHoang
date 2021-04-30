@@ -3,12 +3,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Book extends Media {
-	private int id;
+	private static int nbBook = 0;
 	private ArrayList<String> authors = new ArrayList<String>();
-
-	public int getId() {
-		return id;
-	}
 
 	public ArrayList<String> getAuthors() {
 		return authors;
@@ -16,13 +12,14 @@ public class Book extends Media {
 	
 	public Book(String title, String category, float cost, LocalDate date, int id, ArrayList<String> authors) {
 		super(title, category, cost, date);
-		this.id = id;
+		this.nbBook += 1;
+		this.id = "B" + nbBook;
 		this.authors = authors;
 	}
 
 	@Override
 	public String toString() {
-		return "Book - " + id + " - " + authors + " - " + title + " - " + category + " - "
+		return "Book - " + id + " - " + title + " - " + category + " - " + authors   + " - "
 				+ cost + "$";
 	}
 

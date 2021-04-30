@@ -5,6 +5,11 @@ import java.util.ArrayList;
 public class Cart {
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	
+	
+	public ArrayList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
+
 	// calculate the total cost of dvds in cart
 	public float totalCost() {
 		float sum = 0;
@@ -39,54 +44,44 @@ public class Cart {
 		}
 	}
 	
-//	//print the information of dvd and total cost in cart
-//	public void printCart(Cart orderedCart) {
-//		System.out.println("*****************************CART*************************************");
-//		System.out.println("Ordered Items:");
-//		for (int i=0; i < qtyOrdered; i++) {
-//			System.out.print((i+1) + ". " + "DVD - ");
-//			for (int j = 0; j < DigitalVideoDisc.getDetail(itemsOrdered[i]).size() -1 ; j++) {
-//				System.out.print(DigitalVideoDisc.getDetail(itemsOrdered[i]).get(j) + " - ");
-//			}
-//			System.out.println(DigitalVideoDisc.getDetail(itemsOrdered[i]).get(DigitalVideoDisc.getDetail(itemsOrdered[i]).size() -1 ));
-//		}
-//		System.out.println("Total cost: " + orderedCart.totalCost());
-//		System.out.println("**********************************************************************");
-//	}
-//	
-//	// search dvd by ID
-//	public void searchDVDbyId(int a) {
-//		boolean found = false;
-//		for (int i = 0; i < qtyOrdered; i++) {
-//			if (itemsOrdered[i].getId() == a) {
-//				found = true;
-//				System.out.print("DVD");
-//				for (int j = 0; j < DigitalVideoDisc.getDetail(itemsOrdered[i]).size(); j++) {
-//					System.out.print(" - " + DigitalVideoDisc.getDetail(itemsOrdered[i]).get(j));
-//				}
-//			}
-//		}
-//		if (found == false) {
-//			System.out.println("\nDVD not found!");
-//		}
-//		
-//	}
-//	
-//	//search dvd by Title
-//	public void searchDVDbyTitle(String b) {
-//		boolean found = false;
-//		for (int i = 0; i < qtyOrdered; i++) {
-//			if (itemsOrdered[i].getTitle() == b) {
-//				found = true;
-//				System.out.print("DVD");
-//				for (int j = 0; j < DigitalVideoDisc.getDetail(itemsOrdered[i]).size(); j++) {
-//					System.out.print(" - " + DigitalVideoDisc.getDetail(itemsOrdered[i]).get(j));
-//				}
-//			}
-//		}
-//		if (found == false) {
-//			System.out.println("\nDVD not found!");
-//		}
-//	}
+	//print the information of media and total cost in cart
+	public void printCart(Cart orderedCart) {
+		System.out.println("*****************************CART*********************************************");
+		System.out.println("Ordered Items:");
+		for (int i=0; i < itemsOrdered.size(); i++) {
+			System.out.println((i+1) + ". " + itemsOrdered.get(i).toString());
+		}
+		System.out.println("Total cost: " + orderedCart.totalCost() +"$");
+		System.out.println("******************************************************************************");
+	}
+	
+	// search dvd by ID
+	public void searchDVDbyId(String a) {
+		boolean found = false;
+		for (int i = 0; i < itemsOrdered.size(); i++) {
+			if (itemsOrdered.get(i).getId() == a) {
+				found = true;
+				System.out.print(itemsOrdered.get(i).toString());
+			}
+		}
+		if (found == false) {
+			System.out.println("\nItems not found!");
+		}
+		
+	}
+	
+	//search dvd by Title
+	public void searchDVDbyTitle(String b) {
+		boolean found = false;
+		for (int i = 0; i < itemsOrdered.size(); i++) {
+			if (itemsOrdered.get(i).getTitle() == b) {
+				found = true;
+				System.out.print(itemsOrdered.get(i).toString());
+			}
+		}
+		if (found == false) {
+			System.out.println("\nItems not found!");
+		}
+	}
 	
 }

@@ -5,7 +5,12 @@ public abstract class Media {
 	protected String title;
 	protected String category;
 	protected float cost;
-	private LocalDate date;
+	protected LocalDate date;
+	protected String id;
+	
+	public String getId() {
+		return id;
+	}
 
 	public String getTitle() {
 		return title;
@@ -38,5 +43,5 @@ public abstract class Media {
 		else {
 			return false;
 		}
-	}	
+	}
 }

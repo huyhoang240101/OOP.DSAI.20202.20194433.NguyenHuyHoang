@@ -7,7 +7,7 @@ import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Track;
 
-public class TestMedia {
+public class MediaTest {
 
 	public static void main(String[] args) {
 		ArrayList<Media> medias = new ArrayList<Media>();
