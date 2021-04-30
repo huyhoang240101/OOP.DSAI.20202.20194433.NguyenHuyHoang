@@ -1,4 +1,5 @@
 package hust.soict.dsai.aims.media;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CompactDisc extends Disc implements Playable{
@@ -29,26 +30,41 @@ public class CompactDisc extends Disc implements Playable{
 		}
 	}
 	
-	public int getLength(ArrayList<Track> track) {
+	public int getLength() {
 		int length = 0;
-		for (int i =0; i < track.size(); i++) {
-			length += track.get(i).getLength();
+		for (int i =0; i < tracks.size(); i++) {
+			length += tracks.get(i).getLength();
 		}
 		return length;
 	}
-
-	public CompactDisc() {
-		// TODO Auto-generated constructor stub
+	
+	public CompactDisc(String title, String category, float cost, LocalDate date, String artist, ArrayList<Track> tracks) {
+		super(title, category, cost, date);
+		this.artist = artist;
+		this.tracks = tracks;
+		this.length = getLength();
 	}
+
+	@Override
+	public String toString() {
+		return "CD - " + artist + " - "
+				+ length + " - " + title + " - " + category + " - " + cost + "$";
+	}
+
 	public void play() {
-		System.out.println(this.getTitle() + " CD");
-		System.out.println("CD artist: " + this.getArtist());
-		System.out.println("List of tracks:");
-		for (int i = 0; i < tracks.size(); i++) {
-			System.out.println(tracks.get(i).getTitle());
+		if (this.getLength() == 0) {
+			System.out.println("Can not play this Compact Disc!");
 		}
-		for (int i = 0; i < tracks.size(); i++) {
-			tracks.get(i).play();
+		else {
+			System.out.println(this.getTitle() + " CD");
+			System.out.println("CD artist: " + this.getArtist());
+			System.out.println("List of tracks:");
+			for (int i = 0; i < tracks.size(); i++) {
+				System.out.println(tracks.get(i).getTitle());
+			}
+			for (int i = 0; i < tracks.size(); i++) {
+				tracks.get(i).play();
+			}
 		}
 	}
 

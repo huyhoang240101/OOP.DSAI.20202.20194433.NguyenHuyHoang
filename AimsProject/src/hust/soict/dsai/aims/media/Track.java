@@ -15,9 +15,21 @@ public class Track implements Playable{
 	public Track() {
 		// TODO Auto-generated constructor stub
 	}
-	 public void play() {
-		 System.out.println("Playing track: " + this.getTitle());
-		 System.out.println("Track length: " + this.getLength());
+	
+	 public Track(String title, int length) {
+		super();
+		this.title = title;
+		this.length = length;
+	}
+
+	public void play() {
+		if (this.getLength() == 0) {
+			System.out.println("Cannot play this track!");
+		}
+		else {
+			 System.out.println("Playing track: " + this.getTitle());
+			 System.out.println("Track length: " + this.getLength());
+		}
 	 }
 	 
 	 public boolean equals(Track anotherTrack) {
