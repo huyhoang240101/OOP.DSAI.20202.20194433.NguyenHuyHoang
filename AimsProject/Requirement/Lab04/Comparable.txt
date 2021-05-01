@@ -1,0 +1,5 @@
+- The class that should implement the "Comparable" interface approach is Media.
+- We cannot override compareTo() method to reflect the ordering "by title then by cost" and "by cost then by title".
+- We can not have two ordering rules of the item if we use this "Comparable" interface approach. Because "Comparable" only
+allow us to use one comparison.
+- I would implement Comparable interface in the Media Class. In this class I would override the compareTo() method to 
