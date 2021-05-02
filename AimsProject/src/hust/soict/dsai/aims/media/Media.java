@@ -1,13 +1,19 @@
 package hust.soict.dsai.aims.media;
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.Comparator;
+import hust.soict.dsai.aims.cart.MediaComparatorByCostTitle;
+import hust.soict.dsai.aims.cart.MediaComparatorByTitleCost;
 import java.lang.Comparable;
 
-public abstract class Media implements Comparable<Media> {
+public abstract class Media {
 	protected String title;
 	protected String category;
 	protected float cost;
 	protected LocalDate date;
 	protected String id;
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 	
 	public String getId() {
 		return id;
@@ -38,16 +44,11 @@ public abstract class Media implements Comparable<Media> {
 	}
 
 	public boolean equals(Media anotherMedia) {
-		if (this.getTitle() == anotherMedia.getTitle()) {
+		if (this.getTitle().equals(anotherMedia.getTitle())) {
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
-	
-	public int compareTo(Media o) {
-		return this.title.compareTo(o.title);
-	}
-	
 }

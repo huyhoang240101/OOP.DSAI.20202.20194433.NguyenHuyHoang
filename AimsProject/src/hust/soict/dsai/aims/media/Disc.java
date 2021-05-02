@@ -27,6 +27,5 @@ public class Disc extends Media {
 
 	public Disc(String title, String category, float cost, LocalDate date) {
 		super(title, category, cost, date);
-	}
-	
+	}	
 }

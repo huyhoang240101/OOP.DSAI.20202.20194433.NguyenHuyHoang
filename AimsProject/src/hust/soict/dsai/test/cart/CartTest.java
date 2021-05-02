@@ -21,7 +21,7 @@ public class CartTest {
 		
 		ArrayList<String> authors1 = new ArrayList<String>();
 		authors1.add("Gosho");
-		Book book = new Book("Conan", "Comic", 19.95f, LocalDate.now(), 12, authors1);
+		Book book = new Book("Conan", "Comic", 19.95f, LocalDate.now(), authors1);
 		
 		Track track1 = new Track("a", 1);
 		Track track2 = new Track("b", 2);
@@ -31,16 +31,15 @@ public class CartTest {
 		CompactDisc cd = new CompactDisc("Leave the door open", "Pop", 20.0f, LocalDate.now(), "Bruno Mars", tracks1);
 				
 		cart.addMedia(dvd1, dvd2, book, cd);
-		cart.printCart(cart);
+		cart.printCart();
 		
 //		cart.searchDVDbyId("DVD2");
 //		cart.searchDVDbyId("DVD3");
 //		cart.searchDVDbyTitle("Star Wars");
 //		cart.searchDVDbyTitle("Soul");
 		//Collections.sort(cart.getItemsOrdered(), new MediaComparatorByCostTitle());
-		Collections.sort(cart.getItemsOrdered());
 		
-		cart.printCart(cart);
+		cart.printCart();
 		
 		//Collections.sort(cart.getItemsOrdered(), new MediaComparatorByTitleCost());
 		//cart.printCart(cart);

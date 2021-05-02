@@ -10,7 +10,7 @@ public class Book extends Media {
 		return authors;
 	}
 	
-	public Book(String title, String category, float cost, LocalDate date, int id, ArrayList<String> authors) {
+	public Book(String title, String category, float cost, LocalDate date) {
 		super(title, category, cost, date);
 		this.nbBook += 1;
 		this.id = "B" + nbBook;
@@ -23,23 +23,21 @@ public class Book extends Media {
 				+ cost + "$";
 	}
 
-	void addAuthor(String authorName) {
+	public void addAuthor(String authorName) {
 		if (authors.contains(authorName) == true) {
 			System.out.println(authorName + " already exist");
 		}
 		else {
 			authors.add(authorName);
-			System.out.println(authorName + " has been added");
 		}
 	}
 	
-	void removeAuthor(String authorName) {
+	public void removeAuthor(String authorName) {
 		if (authors.contains(authorName) == true) {
 			authors.remove(authorName);
 			System.out.println(authorName + " has been removed");
 		}
 		else {
-			System.out.println(authorName + " does not exist");
 		}
 	}
 }

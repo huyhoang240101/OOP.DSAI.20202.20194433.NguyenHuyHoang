@@ -22,12 +22,10 @@ public class DigitalVideoDisc extends Disc implements Playable {
 			System.out.println("Can not play this Digital Video Disc!");
 		}
 		else {
+			System.out.println("\n********************************");
 			System.out.println("Playing DVD: " + this.getTitle());
 			System.out.println("DVD length: " + this.getLength());
+			System.out.println("\n********************************");
 		}
-	}
-	
-	public int compareTo(DigitalVideoDisc o) {
-		return o.length - this.length;
 	}
 }

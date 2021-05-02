@@ -2,4 +2,22 @@
 - We cannot override compareTo() method to reflect the ordering "by title then by cost" and "by cost then by title".
 - We can not have two ordering rules of the item if we use this "Comparable" interface approach. Because "Comparable" only
 allow us to use one comparison.
-- I would implement Comparable interface in the Media Class. In this class I would override the compareTo() method to 
+- Modify code:
+  + Override compareTo() method in Media Class to sort by title:
+     public int compareTo(Media o) {
+		return this.title.compareTo(o.title);
+	 }
+  + Override compareTo() method in DigitalVideoDisc Class to sort by length:
+     public int compareTo(DigitalVideoDisc o) {
+		if (this.title.compareTo(o.title) == 0) {
+			if (o.length - this.length == 0) {
+				return (int) (o.cost - this.cost);
+			}
+			else {
+				return o.length - this.length;
+			}
+		}
+		else {
+			return this.title.compareTo(o.title);
+		}
+	 }

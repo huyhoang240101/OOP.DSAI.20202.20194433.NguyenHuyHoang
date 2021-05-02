@@ -1,10 +1,20 @@
 package hust.soict.dsai.aims.store;
 import java.util.ArrayList;
+import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Media;
 
 public class Store {
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
+	private Cart cart = new Cart();
 	
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
 	//add items to the store
 	public void addMediaToStore(Media ... media) {
 		for (int i = 0; i < media.length; i++) {
@@ -29,5 +39,13 @@ public class Store {
 			System.out.println((i+1) + ". " + itemsInStore.get(i).toString() + " - " + itemsInStore.get(i).getDate());
 		}
 		System.out.println("\n**********************************************************************");
+	}
+	
+	public void displayStore() {
+		System.out.println("**************STORE******************");
+		for (int i = 0; i < itemsInStore.size(); i++) {
+			System.out.println((i+1) + ". " + itemsInStore.get(i).getId()+ " - " + itemsInStore.get(i).getTitle());
+		}
+		System.out.println("\n*************************************");
 	}
 }

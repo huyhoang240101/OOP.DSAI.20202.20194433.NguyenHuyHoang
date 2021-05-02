@@ -11,10 +11,6 @@ public class Track implements Playable{
 	public int getLength() {
 		return length;
 	}
-
-	public Track() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	 public Track(String title, int length) {
 		super();
