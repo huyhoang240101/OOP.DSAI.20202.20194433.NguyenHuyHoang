@@ -426,6 +426,7 @@ public class Aims {
 					System.out.println("Item not found!");
 				}
 			}
+			//Unfinished
 			else if (cartOption == 5) {
 				System.out.println("An order has been placed!");
 				for (int i = 0; i < HoangStore.getCart().getItemsOrdered().size(); i++) {
