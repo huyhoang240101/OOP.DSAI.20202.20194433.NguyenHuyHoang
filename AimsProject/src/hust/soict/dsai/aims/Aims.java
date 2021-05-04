@@ -105,18 +105,6 @@ public class Aims {
 	
 	public static void main(String[] args) {
 		Store HoangStore = new Store();
-		Track track1 = new Track("a", 1);
-		Track track2 = new Track("b", 2);
-		ArrayList<Track> tracks1 = new ArrayList<Track>();
-		tracks1.add(track2);
-		tracks1.add(track1);
-		ArrayList<String> authors1 = new ArrayList<String>();
-		authors1.add("Gosho");
-		CompactDisc cd = new CompactDisc("Leave the door open", "Pop", 20.0f, LocalDate.now(), "Bruno Mars");
-		DigitalVideoDisc dvd = new DigitalVideoDisc("Avengers", "Science Fiction", 15.0f, LocalDate.now(), "Kevin", 150);
-		Book book = new Book("Conan", "Comic", 5f, LocalDate.now());
-		HoangStore.addMediaToStore(dvd, cd, book);
-		HoangStore.getCart().addMedia(dvd, book, cd);
 		
 		boolean found = false;
 		Scanner input = new Scanner(System.in);
@@ -125,6 +113,7 @@ public class Aims {
 		if (menu == 0) {
 			System.out.println("Thank you for using our services!");
 		}
+		//1. VIEW STORE
 		else if (menu == 1) {
 			HoangStore.displayStore();
 			storeMenu();
@@ -132,6 +121,7 @@ public class Aims {
 			if (menuOption == 0) {
 				System.out.println("Thank you for using our services!");
 			}
+			//1. SEE A MEDIA'S DETAIL
 			else if (menuOption == 1) {
 				System.out.println("Enter title: ");
 				input.nextLine();
@@ -143,16 +133,18 @@ public class Aims {
 						System.out.println(HoangStore.getItemsInStore().get(i).toString());
 						System.out.println("\n******************************************************************");
 						
+						//IF BOOK
 						if (HoangStore.getItemsInStore().get(i) instanceof Book == true) {
 							bookMenu();
 							int bookOption = input.nextInt();
-							if (bookOption == 0) {
-								System.out.println("Thank you for using our services!");
-							}
-							else if (bookOption == 1) {
+							if (bookOption == 1) {
 								HoangStore.getCart().addMedia(HoangStore.getItemsInStore().get(i));
 							}
+							else if (bookOption == 0) {
+								System.out.println("Thank you for using our services!");
+							}
 						}
+						//IF DVD
 						else if (HoangStore.getItemsInStore().get(i) instanceof DigitalVideoDisc == true) {
 							discMenu();
 							int dvdOption = input.nextInt();
@@ -395,7 +387,6 @@ public class Aims {
 					if (HoangStore.getCart().getItemsOrdered().get(i).getId().equals(mediaRemove.toUpperCase())) {
 						found = true;
 						HoangStore.getCart().removeMedia(HoangStore.getCart().getItemsOrdered().get(i));
-						HoangStore.getCart().printCart();
 						break;
 					}
 				}
