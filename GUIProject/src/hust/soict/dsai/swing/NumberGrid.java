@@ -24,7 +24,7 @@ public class NumberGrid extends JFrame {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Number Grid");
-		setSize(300, 250);
+		setSize(260, 260);
 		setVisible(true);
 	}
 	
