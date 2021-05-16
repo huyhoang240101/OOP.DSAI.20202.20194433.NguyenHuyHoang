@@ -5,14 +5,9 @@ import hust.soict.dsai.aims.media.Media;
 
 public class Store {
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
-	private Cart cart = new Cart();
 	
 	public ArrayList<Media> getItemsInStore() {
 		return itemsInStore;
-	}
-
-	public Cart getCart() {
-		return cart;
 	}
 
 	//add items to the store

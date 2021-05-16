@@ -53,24 +53,22 @@ public class CompactDisc extends Disc implements Playable{
 				+ length   + " - " + cost + "$";
 	}
 
-	public void play() {
+	public String play() {
 		if (this.getLength() == 0) {
-			System.out.println("Can not play this Compact Disc!");
+			return "Can not play this Compact Disc!";
 		}
 		else {
-			System.out.println("\n********************************");
-			System.out.println("Playing CD: " + this.getTitle());
-			System.out.println("CD artist: " + this.getArtist());
-			System.out.println("List of tracks:");
-			for (int i = 0; i < tracks.size(); i++) {
-				System.out.println("- " + tracks.get(i).getTitle());
-			}
-			System.out.println("\n--------------------------------");
-			for (int i = 0; i < tracks.size(); i++) {
-				tracks.get(i).play();
-			}
-			System.out.println("\n--------------------------------");
-			System.out.println("\n********************************");
+			return "Playing CD: " + this.getTitle() + 
+					"CD artist: " + this.getArtist() + 
+					"List of tracks:";
+//			for (int i = 0; i < tracks.size(); i++) {
+//				return "- " + tracks.get(i).getTitle();
+//			}
+//			System.out.println("\n--------------------------------");
+//			for (int i = 0; i < tracks.size(); i++) {
+//				tracks.get(i).play();
+//			}
+//			System.out.println("\n--------------------------------");
 		}
 	}
 

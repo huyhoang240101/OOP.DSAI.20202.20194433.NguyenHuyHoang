@@ -10,7 +10,7 @@ public class Book extends Media {
 		return authors;
 	}
 	
-	public Book(String title, String category, float cost, LocalDate date) {
+	public Book(String title, String category, float cost, LocalDate date, ArrayList<String> authors) {
 		super(title, category, cost, date);
 		this.nbBook += 1;
 		this.id = "B" + nbBook;

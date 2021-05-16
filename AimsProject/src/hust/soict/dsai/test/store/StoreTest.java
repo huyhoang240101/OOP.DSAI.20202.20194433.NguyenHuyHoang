@@ -19,14 +19,14 @@ public class StoreTest {
 		
 		ArrayList<String> authors1 = new ArrayList<String>();
 		authors1.add("Gosho");
-		Book book = new Book("Conan", "Comic", 5f, LocalDate.now(), 12, authors1);
+		Book book = new Book("Conan", "Comic", 5f, LocalDate.now());
 		
 		Track track1 = new Track("a", 1);
 		Track track2 = new Track("b", 2);
 		ArrayList<Track> tracks1 = new ArrayList<Track>();
 		tracks1.add(track2);
 		tracks1.add(track1);
-		CompactDisc cd = new CompactDisc("Leave the door open", "Pop", 20.0f, LocalDate.now(), "Bruno Mars", tracks1);
+		CompactDisc cd = new CompactDisc("Leave the door open", "Pop", 20.0f, LocalDate.now(), "Bruno Mars");
 		
 		store1.addMediaToStore(dvd1,dvd2,book, cd);
 		store1.printStore();

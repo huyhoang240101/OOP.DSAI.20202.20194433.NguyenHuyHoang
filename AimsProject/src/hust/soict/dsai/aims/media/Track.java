@@ -18,13 +18,12 @@ public class Track implements Playable{
 		this.length = length;
 	}
 
-	public void play() {
+	public String play() {
 		if (this.getLength() == 0) {
-			System.out.println("Cannot play this track!");
+			return "Cannot play this track!";
 		}
 		else {
-			 System.out.println("Playing track: " + this.getTitle());
-			 System.out.println("Track length: " + this.getLength());
+			 return "Track length: " + this.getLength();
 		}
 	 }
 	 
