@@ -8,7 +8,7 @@ public class PlayerException extends Exception {
 
 	public PlayerException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
+		System.err.println(message);
 	}
 
 	public PlayerException(Throwable cause) {
