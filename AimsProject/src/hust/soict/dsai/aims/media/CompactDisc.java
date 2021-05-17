@@ -32,7 +32,7 @@ public class CompactDisc extends Disc implements Playable{
 	
 	public int getLengthCD() {
 		int length = 0;
-		for (int i =0; i < tracks.size(); i++) {
+		for (int i = 0; i < tracks.size(); i++) {
 			length += tracks.get(i).getLength();
 		}
 		return length;
@@ -42,15 +42,14 @@ public class CompactDisc extends Disc implements Playable{
 		super(title, category, cost, date);
 		this.artist = artist;
 		this.tracks = tracks;
-		this.length = this.getLengthCD();
 		this.nbCompactDisc += 1;
 		this.id = "CD" + nbCompactDisc;
 	}
 
 	@Override
 	public String toString() {
-		return "CD - " + id + " - " + title + " - " + category + " - " + artist + " - "
-				+ length   + " - " + cost + "$";
+		return "CD - " + id + " - " + title + " - " + artist + " - "
+				+ getLengthCD() + " - " + cost + "$";
 	}
 
 	public String play() {
@@ -70,6 +69,15 @@ public class CompactDisc extends Disc implements Playable{
 //			}
 //			System.out.println("\n--------------------------------");
 		}
+	}
+	public static void main(String[] args) {
+		Track track1 = new Track("The Man", 3);
+		Track track2 = new Track("London Boy", 4);
+		CompactDisc cd = new CompactDisc("Lover", "DVD", 50.0f, LocalDate.now(), "Taylor Swift");
+		cd.addTrack(track1);
+		cd.addTrack(track2);
+		System.out.println(cd.toString());
+		System.out.println(cd.getLengthCD());
 	}
 
 }

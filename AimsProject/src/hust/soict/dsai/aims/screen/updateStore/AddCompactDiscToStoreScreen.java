@@ -11,11 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import hust.soict.dsai.aims.media.Book;
+import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.store.Store;
 
 public class AddCompactDiscToStoreScreen extends JFrame {
-	private Store store;
 	private JTextField cdTitle;
 	private JTextField cdArtist;
 	private JTextField cdCost;
@@ -24,10 +23,9 @@ public class AddCompactDiscToStoreScreen extends JFrame {
 	private String artist;
 	
 	public AddCompactDiscToStoreScreen() {
-		this.store = store;
 		
 		Container cp = getContentPane();
-		cp.setLayout(new GridLayout(4,2));
+		cp.setLayout(new GridLayout(5,2));
 		
 		cp.add(new JLabel("Title"));
 		cdTitle = new JTextField();
@@ -36,7 +34,7 @@ public class AddCompactDiscToStoreScreen extends JFrame {
 		
 		cp.add(new JLabel("Artist"));
 		cdArtist = new JTextField();
-		cdArtist.addActionListener(new InputAuthors());
+		cdArtist.addActionListener(new InputArtist());
 		cp.add(cdArtist);
 		
 		cp.add(new JLabel("Cost"));
@@ -44,19 +42,30 @@ public class AddCompactDiscToStoreScreen extends JFrame {
 		cdCost.addActionListener(new InputCost());
 		cp.add(cdCost);
 		
+		cp.add(new JLabel("Tracks"));
+		JButton addTrack = new JButton("Add tracks");
+		addTrack.addActionListener(new AddTrackButton());
+		cp.add(addTrack);
+		
 		cp.add(new JLabel());
 		JButton done = new JButton("Done");
 		done.addActionListener(new DoneButton());
 		cp.add(done);
 		
 		setVisible(true);
-		setTitle("Add Book");
-		setSize(580,200);		
+		setTitle("Add Compact Disc");
+		setSize(300,200);		
 	}
 	
 	private class InputTitle implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			title = cdTitle.getText();
+		}
+	}
+	
+	private class InputArtist implements ActionListener {
+		public void actionPerformed(ActionEvent evt) {
+			artist = cdArtist.getText();
 		}
 	}
 		
@@ -66,15 +75,26 @@ public class AddCompactDiscToStoreScreen extends JFrame {
 		}
 	}
 	
+	private class AddTrackButton implements ActionListener {
+		public void actionPerformed(ActionEvent evt) {
+			new AddTrackToCompactDiscScreen();
+		}
+	}
+	
 	private class DoneButton implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			String button = evt.getActionCommand();
-			if (button.equals("Done")) {
-				Book book = new Book(title, "Book", cost, LocalDate.now(), authors);
-				store.addMediaToStore(book);
-				dispose();
-			}	
+			CompactDisc cd = new CompactDisc(title, "CD", cost, LocalDate.now(), artist);
+			for (int i = 0; i < AddTrackToCompactDiscScreen.getTrack().size(); i++) {
+				cd.addTrack(AddTrackToCompactDiscScreen.getTrack().get(i));
+			}
+			Store.getStore().addMediaToStore(cd);
+			Store.getStore().printStore();
+			dispose();	
 		}
+	}
+	
+	public static void main(String[] args) {
+		new AddCompactDiscToStoreScreen();
 	}
 
 }

@@ -15,7 +15,6 @@ import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.store.Store;
 
 public class AddDigitalVideoDiscToStoreScreen extends JFrame {
-	private Store store;
 	private JTextField dvdTitle;
 	private JTextField dvdDirector;
 	private JTextField dvdLength;
@@ -26,7 +25,6 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
 	private int length;
 	
 	public AddDigitalVideoDiscToStoreScreen() {
-		this.store = store;
 		
 		Container cp = getContentPane();
 		cp.setLayout(new GridLayout(5,2));
@@ -81,7 +79,7 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
 	
 	private class InputLength implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			length = Integer.parseInt(dvdCost.getText());
+			length = Integer.parseInt(dvdLength.getText());
 		}
 	}
 	
@@ -89,8 +87,9 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
 		public void actionPerformed(ActionEvent evt) {
 			String button = evt.getActionCommand();
 			if (button.equals("Done")) {
-//				DigitalVideoDisc dvd = new DigitalVideoDisc(title, "DVD", cost, LocalDate.now(), directory, length);
-//				store.addMediaToStore(dvd);
+				DigitalVideoDisc dvd = new DigitalVideoDisc(title, "DVD", cost, LocalDate.now(), directory, length);
+				Store.getStore().addMediaToStore(dvd);
+				Store.getStore().printStore();
 				dispose();
 			}
 		}

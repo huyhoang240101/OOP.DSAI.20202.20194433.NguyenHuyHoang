@@ -27,7 +27,6 @@ public class AddBookToStoreScreen extends JFrame {
 	private ArrayList<String> authors = new ArrayList<String>();
 	
 	public AddBookToStoreScreen() {
-		this.store = store;
 		
 		Container cp = getContentPane();
 		cp.setLayout(new GridLayout(4,2));
@@ -81,12 +80,10 @@ public class AddBookToStoreScreen extends JFrame {
 	
 	private class DoneButton implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			String button = evt.getActionCommand();
-			if (button.equals("Done")) {
-				Book book = new Book(title, "Book", cost, LocalDate.now(), authors);
-				store.addMediaToStore(book);
-				dispose();
-			}	
+			Book book = new Book(title, "Book", cost, LocalDate.now(), authors);
+			Store.getStore().addMediaToStore(book);
+			Store.getStore().printStore();
+			dispose();
 		}
 	}
 	

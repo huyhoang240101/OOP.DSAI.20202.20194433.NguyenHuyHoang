@@ -5,6 +5,14 @@ import hust.soict.dsai.aims.media.Media;
 
 public class Store {
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
+	private static final Store INSTANCE = new Store();
+	
+	private Store() {
+	}
+	
+	public static Store getStore() {
+		return INSTANCE;
+	}
 	
 	public ArrayList<Media> getItemsInStore() {
 		return itemsInStore;

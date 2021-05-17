@@ -64,7 +64,7 @@ public class MediaStore extends JPanel {
 			
 			String button = e.getActionCommand();
 			if (button.equals("Add to cart")) {
-				storeScreen.getCart().addMedia(media);
+				Cart.getCart().addMedia(media);
 			}
 			if (button.equals("Play")) {
 				JFrame f = new JFrame();

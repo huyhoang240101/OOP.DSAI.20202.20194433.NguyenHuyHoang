@@ -26,20 +26,13 @@ import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.screen.updateStore.AddBookToStoreScreen;
+import hust.soict.dsai.aims.screen.updateStore.AddCompactDiscToStoreScreen;
+import hust.soict.dsai.aims.screen.updateStore.AddDigitalVideoDiscToStoreScreen;
 import hust.soict.dsai.aims.store.Store;
 
 public class StoreScreen extends JFrame {
-	private Store store;
-	private Cart cart;
 	
-	public Store getStore() {
-		return store;
-	}
-	
-	public Cart getCart() {
-		return cart;
-	}
-
 	JPanel createNorth() {
 		JPanel north = new JPanel();
 		north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
@@ -52,9 +45,18 @@ public class StoreScreen extends JFrame {
 		JMenu menu = new JMenu("Option");
 		
 		JMenu smUpdateStore = new JMenu("Update Store");
-		smUpdateStore.add(new JMenuItem("Add Book"));
-		smUpdateStore.add(new JMenuItem("Add CD"));
-		smUpdateStore.add(new JMenuItem("Add DVD"));
+		
+		JMenuItem addBook = new JMenuItem("Add Book");
+		addBook.addActionListener(new TFMenuItem());
+		smUpdateStore.add(addBook);
+		
+		JMenuItem addCD = new JMenuItem("Add CD");
+		addCD.addActionListener(new TFMenuItem());
+		smUpdateStore.add(addCD);
+		
+		JMenuItem addDVD = new JMenuItem("Add DVD");
+		addDVD.addActionListener(new TFMenuItem());
+		smUpdateStore.add(addDVD);
 		
 		menu.add(smUpdateStore);
 		
@@ -91,7 +93,7 @@ public class StoreScreen extends JFrame {
 		JPanel center = new JPanel();
 		center.setLayout(new GridLayout(3, 3, 2, 2));
 		
-		ArrayList<Media> mediaInStore = store.getItemsInStore();
+		ArrayList<Media> mediaInStore = Store.getStore().getItemsInStore();
 		for (int i = 0; i < 9; i++) {
 			MediaStore cell = new MediaStore(mediaInStore.get(i), this);
 			center.add(cell);
@@ -100,9 +102,7 @@ public class StoreScreen extends JFrame {
 		return center;
 	}
 	
-	public StoreScreen(Store store, Cart cart) {
-		this.store = store;
-		this.cart = cart;
+	public StoreScreen() {
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
 		
@@ -116,23 +116,33 @@ public class StoreScreen extends JFrame {
 	
 	private class TFViewCart implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			String viewCart = e.getActionCommand();
-			if (viewCart.equals("View cart")) {
-				cart.printCart();
+			Cart.getCart().printCart();
+			
+		}
+	}
+	private class TFMenuItem implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			String menuItem = e.getActionCommand();
+			if (menuItem.equals("Add Book")) {
+				new AddBookToStoreScreen();
+			}
+			if (menuItem.equals("Add CD")) {
+				new AddCompactDiscToStoreScreen();
+			}
+			if (menuItem.equals("Add DVD")) {
+				new AddDigitalVideoDiscToStoreScreen();
 			}
 		}
 	}
 	
 	public static void main(String[] args) {
-		Store HoangStore = new Store();
-		Cart HoangCart = new Cart();
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", 19.95f, LocalDate.now(), "Roger Allers", 87);
 		
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", 24.95f, LocalDate.now(), "George Lucas", 87);
 		CompactDisc cd = new CompactDisc("Leave the door open", "Pop", 20.0f, LocalDate.now(), "Bruno Mars");
 		
-		HoangStore.addMediaToStore(dvd2, dvd2, dvd1, dvd2, cd, cd, cd, cd, cd, dvd1);
-		new StoreScreen(HoangStore, HoangCart);
+		Store.getStore().addMediaToStore(dvd2, dvd2, dvd1, dvd2, cd, cd, cd, cd, cd, dvd1);
+		new StoreScreen();
 	}
 
 }

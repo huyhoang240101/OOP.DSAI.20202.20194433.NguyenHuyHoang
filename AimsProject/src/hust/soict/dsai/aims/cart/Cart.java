@@ -8,7 +8,14 @@ import java.util.Collections;
 
 public class Cart {
 	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+	private static final Cart INSTANCE = new Cart();
 	
+	private Cart() {
+	}
+	
+	public static Cart getCart() {
+		return INSTANCE;
+	}
 	
 	public ObservableList<Media> getItemsOrdered() {
 		return itemsOrdered;

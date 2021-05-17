@@ -12,7 +12,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 public class CartScreenController {
-	private Cart cart;
 	
 	@FXML
     private TableView<Media> tblMedia;
@@ -32,15 +31,14 @@ public class CartScreenController {
     @FXML
     private Button btnRemove;
 
-	public CartScreenController(Cart cart) {
+	public CartScreenController() {
 		super();
-		this.cart = cart;
 	}
 	
 	@FXML
     void btnRemoveClicked(MouseEvent event) {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
-		cart.removeMedia(media);
+		Cart.getCart().removeMedia(media);
     }
 	
 	void updateButtonBar(Media media) {
@@ -58,7 +56,7 @@ public class CartScreenController {
     	colMediaTitle.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
     	colMediaCategory.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
     	colMediaCost.setCellValueFactory(new PropertyValueFactory<Media, Float>("cost"));
-    	tblMedia.setItems(this.cart.getItemsOrdered());
+    	tblMedia.setItems(Cart.getCart().getItemsOrdered());
     	
     	btnPlay.setVisible(false);
     	btnRemove.setVisible(false);
