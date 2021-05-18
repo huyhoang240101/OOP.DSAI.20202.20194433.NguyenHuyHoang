@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 
 public class CartScreen extends JFrame {
 
-	public CartScreen(Cart cart) {
+	public CartScreen() {
 		super();
 		
 		JFXPanel fxPanel = new JFXPanel();
@@ -21,10 +21,11 @@ public class CartScreen extends JFrame {
 		
 		this.setTitle("Cart");
 		this.setVisible(true);
+		this.setSize(1050, 768);
 		Platform.runLater(new Runnable() {
 			public void run() {
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/hust/soict/dsai/screen/cart.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/hust/soict/dsai/aims/screen/cart/cart.fxml"));
 					CartScreenController controller = new CartScreenController();
 					loader.setController(controller);
 					Parent root = loader.load();
@@ -36,8 +37,6 @@ public class CartScreen extends JFrame {
 		});
 	}
 	public static void main(String[] args) {
-		launch(args);
+		new CartScreen();
 	}
-
-
 }

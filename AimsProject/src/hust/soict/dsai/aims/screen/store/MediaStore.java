@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
@@ -69,15 +70,25 @@ public class MediaStore extends JPanel {
 			if (button.equals("Play")) {
 				JFrame f = new JFrame();
 				String title;
-				JLabel label1, label2;
+				JLabel label1, label2 = null;
 				if (media instanceof DigitalVideoDisc) {
 					label1 = new JLabel("Director: " + ((DigitalVideoDisc) media).getDirectory());
-					label2 = new JLabel(((DigitalVideoDisc) media).play());
+					try {
+						label2 = new JLabel(((DigitalVideoDisc) media).play());
+					} catch (PlayerException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					title = media.getTitle();
 				}
 				else {
 					label1 = new JLabel("Artist: " + ((CompactDisc) media).getArtist());
-					label2 = new JLabel(((CompactDisc) media).play());
+					try {
+						label2 = new JLabel(((CompactDisc) media).play());
+					} catch (PlayerException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					title = media.getTitle();
 				}
 				JDialog d = new JDialog(f, title);

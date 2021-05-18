@@ -19,7 +19,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <BorderPane prefHeight="768.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <top>
             <VBox prefHeight="25.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
                <children>
@@ -29,12 +29,12 @@
                         <items>
                             <Menu mnemonicParsing="false" text="Update Store">
                               <items>
-                                <MenuItem mnemonicParsing="false" text="Add Book" />
-                                    <MenuItem mnemonicParsing="false" text="Add CD" />
-                                    <MenuItem mnemonicParsing="false" text="Add DVD" />
+                                <MenuItem mnemonicParsing="false" onAction="#addBookChosen" text="Add Book" />
+                                    <MenuItem mnemonicParsing="false" onAction="#addCDChosen" text="Add CD" />
+                                    <MenuItem mnemonicParsing="false" onAction="#addDVDChosen" text="Add DVD" />
                               </items>
                             </Menu>
-                              <MenuItem mnemonicParsing="false" text="View Store" />
+                              <MenuItem mnemonicParsing="false" onAction="#viewStoreChosen" text="View Store" />
                         </items>
                       </Menu>
                     </menus>
@@ -83,7 +83,7 @@
                   </TableView>
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                      <Button fx:id="btnPlay" mnemonicParsing="false" text="Play" />
+                      <Button fx:id="btnPlay" mnemonicParsing="false" onMouseClicked="#playClicked" text="Play" />
                         <Button fx:id="btnRemove" layoutX="769.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#btnRemoveClicked" text="Remove" />
                     </buttons>
                   </ButtonBar>
@@ -106,7 +106,7 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label text="0 $" textFill="AQUA">
+                        <Label fx:id="totalCost" text="0 $" textFill="AQUA">
                            <font>
                               <Font size="24.0" />
                            </font>

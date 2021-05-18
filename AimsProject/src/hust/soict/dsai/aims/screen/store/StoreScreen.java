@@ -26,6 +26,7 @@ import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.screen.cart.CartScreen;
 import hust.soict.dsai.aims.screen.updateStore.AddBookToStoreScreen;
 import hust.soict.dsai.aims.screen.updateStore.AddCompactDiscToStoreScreen;
 import hust.soict.dsai.aims.screen.updateStore.AddDigitalVideoDiscToStoreScreen;
@@ -116,8 +117,9 @@ public class StoreScreen extends JFrame {
 	
 	private class TFViewCart implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			new CartScreen();
 			Cart.getCart().printCart();
-			
+			setVisible(false);
 		}
 	}
 	private class TFMenuItem implements ActionListener {

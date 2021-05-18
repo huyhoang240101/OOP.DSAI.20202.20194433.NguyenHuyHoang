@@ -44,15 +44,19 @@ public class Cart {
 	}
 	
 	public void removeMedia(Media ... media) {
+		boolean mediaExist = false;
 		for (int i = 0; i < media.length; i++) {
 			for (int j = 0; i < itemsOrdered.size(); j++) {
 				if (itemsOrdered.get(j).equals(media[i]) == true) {
 					itemsOrdered.remove(media[i]);
-				}
-				else {
-					System.out.println(media[i].getTitle() + " does not exist!");
+					System.out.println(media[i].getTitle() + "has been removed!");
+					mediaExist = true;
+					break;
 				}
 			}
+		}
+		if (mediaExist == false) {
+			System.out.println("Media does not exist!");
 		}
 	}
 	
