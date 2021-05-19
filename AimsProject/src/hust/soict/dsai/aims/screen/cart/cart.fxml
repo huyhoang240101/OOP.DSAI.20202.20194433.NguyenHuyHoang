@@ -119,7 +119,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="156.0" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
+                  <Button mnemonicParsing="false" onMouseClicked="#placeOrderClicked" prefHeight="51.0" prefWidth="156.0" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>

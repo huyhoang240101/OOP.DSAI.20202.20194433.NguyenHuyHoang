@@ -1,4 +1,5 @@
 package hust.soict.dsai.aims.screen.cart;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JDialog;
@@ -58,6 +59,7 @@ public class CartScreenController {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
 		Cart.getCart().removeMedia(media);
 		Cart.getCart().printCart();
+		totalCost.setText(Cart.getCart().totalCost() + "$");
     }
 	
 	void updateButtonBar(Media media) {
@@ -69,6 +71,18 @@ public class CartScreenController {
 			btnPlay.setVisible(false);
 		}
 	}
+	
+	@FXML
+    void placeOrderClicked(MouseEvent event) {
+		JFrame f = new JFrame();
+		JDialog p = new JDialog(f, "Place Order");
+		
+		JLabel label = new JLabel("The ordered has been placed!");
+		p.add(label);
+		p.setLayout(new FlowLayout());
+		p.setSize(150, 100);
+		p.setVisible(true);
+    }
 	
 	@FXML
     void playClicked(MouseEvent event) {
@@ -113,6 +127,5 @@ public class CartScreenController {
     			}
     		}
     	});
-    	
     }
 }

@@ -144,7 +144,7 @@ public class StoreScreen extends JFrame {
 		CompactDisc cd = new CompactDisc("Leave the door open", "Pop", 20.0f, LocalDate.now(), "Bruno Mars");
 		
 		Store.getStore().addMediaToStore(dvd2, dvd2, dvd1, dvd2, cd, cd, cd, cd, cd, dvd1);
-		new StoreScreen();
+		StoreScreen storeScreen = new StoreScreen();
 	}
 
 }
